@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<!--
+ | Uses the Showdown library, as per 
+ | https://github.com/showdownjs/showdown/wiki/Tutorial:-Markdown-editor-using-Showdown
+ | https://github.com/showdownjs/showdown
+ | -->
+<head>
+  <meta charset="UTF-8"/>
+  <script src="showdown-1.6.4/dist/showdown.min.js"></script>
+  <style>
+    body {
+		margin: 0;
+	}
+    #sourceTA {
+      display: block;
+	  min-width:640px;
+	  margin: 8px 8px 8px 8px;
+    }
+    #targetDiv {
+      border: 1px dashed #333333;
+	  padding: 12px;
+      min-width: 600px;
+      min-height: 500px;
+	  margin: 8px;
+    }
+	
+	button {
+		margin-left:16px;
+	}
+	
+	#gutter {
+		color: white; background-color: #555;
+		padding: 20px;
+		font-family: Arial,sans-serif;
+		font-size:12px;
+	}
+	#gutter a {
+		color: #ddf;
+		text-decoration:none;
+	}
+	#gutter a:hover {
+		color: #bbf;
+	}
+	
+	/* Atlassian CSS */
+	.atlassian {
+		font-family: Arial,sans-serif;
+		font-size: 14px;
+	}
+	.atlassian h1, .atlassian h2 {
+		margin: 10px 0 20px 0;
+		color #333;
+		font-weight:normal;
+		line-height:1.25;
+	}
+	.atlassian h1 {
+		font-size: 32px;
+	}
+	.atlassian h2 {
+		font-size: 24px;
+	}
+	.atlassian code {
+	    display: block;
+		font-size:12px;
+		line-height: 18px;
+		overflow: auto;
+		padding: 6px 10px;
+		background-clip: padding-box;
+		border-radius: 3px;
+		border: 1px solid #ccc;
+		background-color: #f5f5f5;
+		font-family: monospace;
+	}
+	.atlassian a {
+		color: #3572b0;
+	}
+  </style>
+  
+  <script>
+    function run() {
+      var text = document.getElementById('sourceTA').value,
+    	  target = document.getElementById('targetDiv'),
+    	  converter = new showdown.Converter(),
+    	  html = converter.makeHtml(text);  
+	  target.innerHTML = html;
+	}
+	
+	/* Empty the form and Markdown div */
+	function reset() {
+		document.getElementById('sourceTA').value = "";
+		run();
+		set_focus();
+	}
+	function set_focus() {
+		document.getElementById('sourceTA').focus();
+	}
+</script>
+</head>
+<body>
+  <textarea id="sourceTA" rows="10" cols="82"></textarea>
+  <br>
+  <button id="runBtn" onClick="run()">Convert</button>
+  <button id="runBtn" onClick="reset()">Clear</button>
+  <br><br>
+  <div id="targetDiv" class="atlassian"></div>
+  
+  <br><br>
+  <div id="gutter">
+	  Markdown editor based on
+		<a href="https://github.com/showdownjs/showdown" target="_blank">Showdown</a>  <br>
+	  <a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">Markdown Syntax</a><br>
+	  <a href="https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html" target="_blank">Atlassian Markdown reference</a><br>
+	  <a href="https://bitbucket.org/tutorials/markdowndemo" target="_blank">Atlassian Markdown tutorial</a><br>
+	  <a href="https://help.github.com/categories/writing-on-github/" target="_blank">Github Flavoured Markdown</a><br>
+	  By <a href="https://github.com/andywis" target="_blank">Andy Watkins</a>
+  </div>
+  <script>
+	/* Force initial focus on type-in box */
+	set_focus();
+  </script>
+</body>
+</html>
