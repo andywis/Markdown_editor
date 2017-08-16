@@ -5,16 +5,20 @@ library.
 
 ## Dependencies
 There is only one dependency: the **showdown.js** library, which you can obtain
-from the link above. The simplest way is to just download dist/showdown.min.js.
-There is probably a _proper_ way to do it is to use Bower, but simply copying
-the file is about as easy as it gets.
+from the link above. The simplest way is to just download dist/showdown.min.js
+(details of where to put it below...)
 
 Everything else is inside the HTML file, to make it dead easy to use :-)
 
 ## Setting up
-1. Clone or download the HTML file from this repo.
-1. **mkdir showdown-1.6.4/dist**  (or, on Windows, **mkdir showdown-1.6.4\dist**)
-1. Copy showdown-min.js into the newly created folder
+1. Clone this repo or download the HTML file from it.
+1. **mkdir  .showdown**  (same command on Windows)
+1. Copy showdown-min.js into the .showdown/dist folder
+```
+mkdir .showdown
+curl -L -o .showdown/showdown.min.js https://github.com/showdownjs/showdown/raw/master/dist/showdown.min.js
+# Windows users may need to download manually if curl is not available to you
+```
 
 
 ## Usage
