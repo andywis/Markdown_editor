@@ -1,6 +1,6 @@
 # Markdown_Editor.html - An in-browser Markdown editor
 
-This editor is based on the [showdown](https://github.com/showdownjs/showdown>)
+This editor is based on the [showdown](https://github.com/showdownjs/showdown)
 library.
 
 ## Dependencies
