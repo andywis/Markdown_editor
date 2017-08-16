@@ -13,7 +13,7 @@ Everything else is inside the HTML file, to make it dead easy to use :-)
 ## Setting up
 1. Clone this repo or download the HTML file from it.
 1. **mkdir  .showdown**  (same command on Windows)
-1. Copy showdown-min.js into the .showdown/dist folder
+1. Copy showdown-min.js into the .showdown folder
 ```
 mkdir .showdown
 curl -L -o .showdown/showdown.min.js https://github.com/showdownjs/showdown/raw/master/dist/showdown.min.js
